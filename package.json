@@ -1,0 +1,29 @@
+{
+  "name": "missioncontrol-discord-bot",
+  "version": "1.0.0",
+  "description": "A multipurpose Discord bot for managing server interactions",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slcao2/MissionControl-Discord-Bot.git"
+  },
+  "contributors": ["Steven Cao"],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slcao2/MissionControl-Discord-Bot/issues"
+  },
+  "homepage": "https://github.com/slcao2/MissionControl-Discord-Bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
