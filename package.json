@@ -2,10 +2,10 @@
   "name": "missioncontrol-discord-bot",
   "version": "1.0.0",
   "description": "A multipurpose Discord bot for managing server interactions",
-  "main": "index.js",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "dev": "node index.js",
+    "dev": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -6,4 +6,4 @@ Tested running Node v14.15.4 (LTS at the time of writing)
 
 ## Local Development
 Run `npm run dev` to start the local server.  
-Replace the text in `client.login('<Enter Token Here>');` with the actual token from the discord bot.
+Replace the text `export const localToken = '<Enter Token Here>';` in `src/utils/localToken.js` with the actual bot token.
