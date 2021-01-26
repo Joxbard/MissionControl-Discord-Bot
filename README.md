@@ -8,3 +8,6 @@ Run the initial repo setup with `npm run setup`
 ## Local Development
 Run `npm run dev` to start the local server.  
 Replace the text `export const localToken = '<Enter Token Here>';` in `src/utils/localToken.js` with the actual bot token.
+
+## Resources
+[Discord Dev Docs](https://discord.com/developers/docs/intro)

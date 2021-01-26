@@ -6,14 +6,15 @@
   "type": "module",
   "scripts": {
     "dev": "node src/index.js",
-    "setup": "npm ci && git update-index --skip-worktree src/utils/localToken.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "setup": "npm ci && git update-index --skip-worktree src/utils/localToken.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/slcao2/MissionControl-Discord-Bot.git"
   },
-  "contributors": ["Steven Cao"],
+  "contributors": [
+    "Steven Cao"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/slcao2/MissionControl-Discord-Bot/issues"
