@@ -1,33 +1,43 @@
-import Discord from 'discord.js';
+import { InteractionResponseType, InteractionType, verifyKey } from 'discord-interactions';
 import { handlePollMessage } from './handlers/pollHandler.js';
-import { localToken } from './utils/localToken.js';
 
-const client = new Discord.Client();
-const token = process.env.TOKEN || localToken;
+const HTTP_STATUS_CODE_200 = 200;
+const HTTP_STATUS_CODE_401 = 401;
 
-const TRIGGER_POLL = '!poll';
+const TRIGGER_POLL = 'poll';
 
-client.on('ready', () => {
-  console.log('I am ready!');
+const ackPing = () => ({
+  type: InteractionResponseType.PONG,
 });
 
-client.on('message', (message) => {
-  const { content } = message;
-
-  if (!content) {
-    return;
+export const main = async (event) => {
+  if (!process.env.IS_LOCAL) {
+    const signature = event.params.header['x-signature-ed25519'];
+    const timestamp = event.params.header['x-signature-timestamp'];
+    const clientPublicKey = process.env.publicKey;
+    const isVerifyKey = await verifyKey(event.rawBody, signature, timestamp, clientPublicKey);
+    if (!isVerifyKey) {
+      return {
+        statusCode: HTTP_STATUS_CODE_401,
+        description: '[UNAUTHORIZED] Invalid request signature',
+      };
+    }
   }
 
-  const triggerWord = content.split(' ', 1)[0];
-  const commandText = content.substring(triggerWord.length + 1);
+  if (event.body.type === InteractionType.PING) {
+    return ackPing();
+  }
 
-  switch (triggerWord.toLowerCase()) {
+  const { name, options } = event.body.data;
+  switch (name) {
     case TRIGGER_POLL:
-      handlePollMessage(commandText);
+      handlePollMessage(options[0]);
       break;
     default:
-      console.log(`Provided trigger word is not valid triggerWord=${triggerWord}`);
+      console.log(`Slash command not valid name=${name}`);
   }
-});
 
-client.login(token);
+  return {
+    statusCode: HTTP_STATUS_CODE_200,
+  };
+};

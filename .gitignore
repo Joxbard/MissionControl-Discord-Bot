@@ -103,5 +103,8 @@ dist
 # TernJS port file
 .tern-port
 
+# Local Webpack Build
+.webpack/
+
 # Local Only File
-src/utils/localToken.js
+.env

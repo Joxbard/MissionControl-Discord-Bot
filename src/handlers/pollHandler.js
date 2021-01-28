@@ -32,33 +32,33 @@ const handleView = () => {
   console.log(COMMAND_WORD_VIEW);
 };
 
-export const handlePollMessage = (commandText) => {
-  const commandWord = commandText.split(' ', 1)[0];
-  const commandOptions = commandText.substring(commandWord.length + 1);
+export const handlePollMessage = (applicationCommandOption) => {
+  const { name, options } = applicationCommandOption;
+  const optionString = options && options[0].value;
 
-  switch (commandWord.toLowerCase()) {
+  switch (name) {
     case COMMAND_WORD_ADD: {
-      const [name, ...options] = parseNameWithOptions(commandOptions);
-      handleAdd(name, options);
+      const [pollName, ...otherOptions] = parseNameWithOptions(optionString);
+      handleAdd(pollName, otherOptions);
       break; }
     case COMMAND_WORD_CREATE: {
-      const [name, ...options] = parseNameWithOptions(commandOptions);
-      handleCreate(name, options);
+      const [pollName, ...otherOptions] = parseNameWithOptions(optionString);
+      handleCreate(pollName, otherOptions);
       break; }
     case COMMAND_WORD_DELETE:
-      handleDelete(commandOptions.trim());
+      handleDelete(optionString.trim());
       break;
     case COMMAND_WORD_HELP:
       handleHelp();
       break;
     case COMMAND_WORD_REMOVE: {
-      const [name, ...options] = parseNameWithOptions(commandOptions);
-      handleRemove(name, options);
+      const [pollName, ...otherOptions] = parseNameWithOptions(optionString);
+      handleRemove(pollName, otherOptions);
       break; }
     case COMMAND_WORD_VIEW:
       handleView();
       break;
     default:
-      console.log(`Provided command word is not valid commandWord=${commandWord}`);
+      console.log(`Provided sub command is not valid name=${name}`);
   }
 };

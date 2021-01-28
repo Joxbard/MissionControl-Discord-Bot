@@ -1,0 +1,15 @@
+{
+  "body": {
+    "data": {
+      "name": "poll",
+      "options": [{
+        "name": "add",
+        "options": [{
+          "name": "add_options",
+          "value": "\"mockPoll\" \"mockOption1\""
+        }]
+      }]
+    },
+    "type": 2
+  }
+}
