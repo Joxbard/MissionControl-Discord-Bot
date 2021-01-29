@@ -13,5 +13,6 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/extensions': ['error', 'always'],
     'no-console': 'off',
+    'linebreak-style': 'off',
   },
 };

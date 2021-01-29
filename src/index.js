@@ -11,6 +11,7 @@ const ackPing = () => ({
 });
 
 export const main = async (event) => {
+  console.log(event);
   if (!process.env.IS_LOCAL) {
     const signature = event.params.header['x-signature-ed25519'];
     const timestamp = event.params.header['x-signature-timestamp'];
@@ -28,6 +29,7 @@ export const main = async (event) => {
     return ackPing();
   }
 
+  console.log(event.body);
   const { name, options } = event.body.data;
   switch (name) {
     case TRIGGER_POLL:

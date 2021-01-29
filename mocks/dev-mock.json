@@ -5,8 +5,11 @@
       "options": [{
         "name": "add",
         "options": [{
-          "name": "add_options",
-          "value": "\"mockPoll\" \"mockOption1\""
+          "name": "poll_name",
+          "value": "mockPollName"
+        }, {
+          "name": "option",
+          "value": "mockOption"
         }]
       }]
     },

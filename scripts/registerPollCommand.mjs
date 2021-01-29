@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { applicationId, botToken, guildId } from './localVariables.js';
+import { applicationId, botToken, guildId } from './localVariables.mjs';
 
 const url = `https://discord.com/api/v8/applications/${applicationId}/guilds/${guildId}/commands`;
 
@@ -11,8 +11,13 @@ const data = {
     description: 'Add an option to a poll',
     type: 1,
     options: [{
-      name: 'add_options',
-      description: 'Format "<name_of_poll>" "<option1>" "<option2?>" ...',
+      name: 'poll_name',
+      description: 'Name of the poll to add to',
+      type: 3,
+      required: true,
+    }, {
+      name: 'option',
+      description: 'Option to add to the poll',
       type: 3,
       required: true,
     }],
@@ -21,8 +26,8 @@ const data = {
     description: 'Create a poll',
     type: 1,
     options: [{
-      name: 'create_options',
-      description: 'Format "<name_of_poll>" "<option1?>" "<option2?>" ...',
+      name: 'poll_name',
+      description: 'Name of the poll to create',
       type: 3,
       required: true,
     }],
@@ -31,22 +36,23 @@ const data = {
     description: 'Delete a poll',
     type: 1,
     options: [{
-      name: 'delete_options',
-      description: 'Format "<name_of_poll>"',
+      name: 'poll_name',
+      description: 'Name of the poll to delete',
       type: 3,
       required: true,
     }],
-  }, {
-    name: 'help',
-    description: 'Display all options available',
-    type: 1,
   }, {
     name: 'remove',
     description: 'Remove an option from a poll',
     type: 1,
     options: [{
-      name: 'remove_options',
-      description: 'Format "<name_of_poll>" "<option1>" "<option2?>" ...',
+      name: 'poll_name',
+      description: 'Name of the poll to remove from',
+      type: 3,
+      required: true,
+    }, {
+      name: 'option',
+      description: 'Option to remove from the poll',
       type: 3,
       required: true,
     }],

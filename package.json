@@ -7,8 +7,9 @@
     "deploy": "serverless deploy",
     "dev": "serverless invoke local --function control --path mocks/dev-mock.json",
     "mock": "serverless invoke local --function control --path",
-    "register:poll": "node scripts/registerPollCommand.js",
-    "setup": "npm ci && git update-index --skip-worktree scripts/localVariables.js"
+    "register:poll": "node scripts/registerPollCommand.mjs",
+    "setup": "npm ci && git update-index --skip-worktree scripts/localVariables.mjs",
+    "setup:clear": "git update-index --no-skip-worktree scripts/localVariables.mjs"
   },
   "repository": {
     "type": "git",
