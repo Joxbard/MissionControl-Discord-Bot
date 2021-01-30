@@ -14,5 +14,7 @@ module.exports = {
     'import/extensions': ['error', 'always'],
     'no-console': 'off',
     'linebreak-style': 'off',
+    'no-unused-vars': 'warn',
+    'max-len': 'warn',
   },
 };

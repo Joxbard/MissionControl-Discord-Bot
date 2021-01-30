@@ -15,7 +15,7 @@ export const main = async (event) => {
   if (!process.env.IS_LOCAL) {
     const signature = event.params.header['x-signature-ed25519'];
     const timestamp = event.params.header['x-signature-timestamp'];
-    const clientPublicKey = process.env.publicKey;
+    const clientPublicKey = process.env.PUBLIC_KEY;
     const isVerifyKey = await verifyKey(event.rawBody, signature, timestamp, clientPublicKey);
     if (!isVerifyKey) {
       return {
@@ -33,12 +33,13 @@ export const main = async (event) => {
   const { name, options } = event.body.data;
   switch (name) {
     case TRIGGER_POLL:
-      handlePollMessage(options[0]);
+      await handlePollMessage(options[0], event.body);
       break;
     default:
       console.log(`Slash command not valid name=${name}`);
   }
 
+  console.log('Request completed successfully');
   return {
     statusCode: HTTP_STATUS_CODE_200,
   };

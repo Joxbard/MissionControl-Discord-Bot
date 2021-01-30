@@ -30,6 +30,11 @@ const data = {
       description: 'Name of the poll to create',
       type: 3,
       required: true,
+    }, {
+      name: 'description',
+      description: 'Description of the poll',
+      type: 3,
+      required: false,
     }],
   }, {
     name: 'delete',

@@ -18,8 +18,9 @@ provider:
   # These environment variables are made available to our functions
   # under process.env.
   environment:
-    tableName: mission-control-poll
-    publicKey: ${env:PUBLIC_KEY}
+    TABLE_NAME_POLL: mission-control-poll
+    PUBLIC_KEY: ${env:PUBLIC_KEY}
+    BOT_TOKEN: ${env:BOT_TOKEN}
 
   # 'iamRoleStatements' defines the permission policy for the Lambda function.
   # In this case Lambda functions are granted with permissions to access DynamoDB.

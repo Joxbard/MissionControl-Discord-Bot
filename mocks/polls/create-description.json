@@ -1,0 +1,18 @@
+{
+  "body": {
+    "data": {
+      "name": "poll",
+      "options": [{
+        "name": "create",
+        "options": [{
+          "name": "poll_name",
+          "value": "mockPollName"
+        }, {
+          "name": "description",
+          "value": "mockDescription"
+        }]
+      }]
+    },
+    "type": 2
+  }
+}
